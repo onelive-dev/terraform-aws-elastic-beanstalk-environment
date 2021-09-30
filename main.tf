@@ -298,7 +298,7 @@ resource "aws_iam_instance_profile" "ec2" {
 }
 
 module "security_group" {
-  source  = "cloudposse/security-group/aws"
+  source  = "app.terraform.io/XDelivery/security-group/aws"
   version = "0.3.1"
 
   use_name_prefix = var.security_group_use_name_prefix
@@ -1031,15 +1031,4 @@ resource "aws_s3_bucket" "elb_logs" {
       target_prefix = "logs/${module.this.id}/"
     }
   }
-}
-
-module "dns_hostname" {
-  source   = "cloudposse/route53-cluster-hostname/aws"
-  version  = "0.12.0"
-  enabled  = var.dns_zone_id != "" && var.tier == "WebServer" ? true : false
-  dns_name = var.dns_subdomain != "" ? var.dns_subdomain : module.this.name
-  zone_id  = var.dns_zone_id
-  records  = [aws_elastic_beanstalk_environment.default.cname]
-
-  context = module.this.context
 }

@@ -32,18 +32,6 @@ variable "loadbalancer_crosszone" {
   description = "Configure the classic load balancer to route traffic evenly across all instances in all Availability Zones rather than only within each zone."
 }
 
-variable "dns_zone_id" {
-  type        = string
-  default     = ""
-  description = "Route53 parent zone ID. The module will create sub-domain DNS record in the parent zone for the EB environment"
-}
-
-variable "dns_subdomain" {
-  type        = string
-  default     = ""
-  description = "The subdomain to create on Route53 for the EB environment. For the subdomain to be created, the `dns_zone_id` variable must be set as well"
-}
-
 variable "security_group_enabled" {
   type        = bool
   description = "Whether to create Security Group."
