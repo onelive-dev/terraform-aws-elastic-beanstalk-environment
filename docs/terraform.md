@@ -16,7 +16,6 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_dns_hostname"></a> [dns\_hostname](#module\_dns\_hostname) | cloudposse/route53-cluster-hostname/aws | 0.12.0 |
 | <a name="module_security_group"></a> [security\_group](#module\_security\_group) | cloudposse/security-group/aws | 0.3.1 |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.25.0 |
 
@@ -76,8 +75,6 @@
 | <a name="input_deployment_timeout"></a> [deployment\_timeout](#input\_deployment\_timeout) | Number of seconds to wait for an instance to complete executing commands | `number` | `600` | no |
 | <a name="input_description"></a> [description](#input\_description) | Short description of the Environment | `string` | `""` | no |
 | <a name="input_descriptor_formats"></a> [descriptor\_formats](#input\_descriptor\_formats) | Describe additional descriptors to be output in the `descriptors` output map.<br>Map of maps. Keys are names of descriptors. Values are maps of the form<br>`{<br>   format = string<br>   labels = list(string)<br>}`<br>(Type is `any` so the map values can later be enhanced to provide additional options.)<br>`format` is a Terraform format string to be passed to the `format()` function.<br>`labels` is a list of labels, in order, to pass to `format()` function.<br>Label values will be normalized before being passed to `format()` so they will be<br>identical to how they appear in `id`.<br>Default is `{}` (`descriptors` output will be empty). | `any` | `{}` | no |
-| <a name="input_dns_subdomain"></a> [dns\_subdomain](#input\_dns\_subdomain) | The subdomain to create on Route53 for the EB environment. For the subdomain to be created, the `dns_zone_id` variable must be set as well | `string` | `""` | no |
-| <a name="input_dns_zone_id"></a> [dns\_zone\_id](#input\_dns\_zone\_id) | Route53 parent zone ID. The module will create sub-domain DNS record in the parent zone for the EB environment | `string` | `""` | no |
 | <a name="input_elastic_beanstalk_application_name"></a> [elastic\_beanstalk\_application\_name](#input\_elastic\_beanstalk\_application\_name) | Elastic Beanstalk application name | `string` | n/a | yes |
 | <a name="input_elb_scheme"></a> [elb\_scheme](#input\_elb\_scheme) | Specify `internal` if you want to create an internal load balancer in your Amazon VPC so that your Elastic Beanstalk application cannot be accessed from outside your Amazon VPC | `string` | `"public"` | no |
 | <a name="input_enable_log_publication_control"></a> [enable\_log\_publication\_control](#input\_enable\_log\_publication\_control) | Copy the log files for your application's Amazon EC2 instances to the Amazon S3 bucket associated with your application | `bool` | `false` | no |
@@ -160,8 +157,7 @@
 | <a name="output_autoscaling_groups"></a> [autoscaling\_groups](#output\_autoscaling\_groups) | The autoscaling groups used by this environment |
 | <a name="output_ec2_instance_profile_role_name"></a> [ec2\_instance\_profile\_role\_name](#output\_ec2\_instance\_profile\_role\_name) | Instance IAM role name |
 | <a name="output_elb_zone_id"></a> [elb\_zone\_id](#output\_elb\_zone\_id) | ELB zone id |
-| <a name="output_endpoint"></a> [endpoint](#output\_endpoint) | Fully qualified DNS name for the environment |
-| <a name="output_hostname"></a> [hostname](#output\_hostname) | DNS hostname |
+| <a name="output_hostname"></a> [hostname](#output\_hostname) | EB Endpoint URL |
 | <a name="output_id"></a> [id](#output\_id) | ID of the Elastic Beanstalk environment |
 | <a name="output_instances"></a> [instances](#output\_instances) | Instances used by this environment |
 | <a name="output_launch_configurations"></a> [launch\_configurations](#output\_launch\_configurations) | Launch configurations in use by this environment |
