@@ -454,6 +454,11 @@ variable "ami_id" {
   description = "The id of the AMI to associate with the Amazon EC2 instances"
 }
 
+variable deployment_type {
+  type        = string
+  description = "Choices are Immutable, Rolling, RollingWithAdditionalBatch, TrafficSplitting"
+}
+
 variable "deployment_batch_size_type" {
   type        = string
   default     = "Fixed"
