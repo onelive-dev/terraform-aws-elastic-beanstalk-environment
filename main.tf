@@ -597,7 +597,7 @@ resource "aws_elastic_beanstalk_environment" "default" {
   setting {
     namespace = "aws:elasticbeanstalk:healthreporting:system"
     name      = "ConfigDocument"
-    value     = "${data.template_file.health_config_document.rendered}"
+    value     = "${jsonencode(data.template_file.health_config_document.rendered)}"
     resource  = ""
   }
 
