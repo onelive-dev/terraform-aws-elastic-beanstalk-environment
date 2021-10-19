@@ -489,6 +489,12 @@ variable "deployment_timeout" {
   description = "Number of seconds to wait for an instance to complete executing commands"
 }
 
+variable "ignore_http_4xx" {
+  type        = bool
+  default     = false
+  description = "Ignore the 4xx errors when reporting on health
+}
+
 variable "extended_ec2_policy_document" {
   type        = string
   default     = "{}"
