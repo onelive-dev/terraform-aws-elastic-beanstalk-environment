@@ -1,7 +1,7 @@
 data "template_file" "health_config_document" {
-  template = "${file("${./ConfigDocument.json")}"
+  template = "${file("./ConfigDocument.json")}"
 
-  vars {
+  vars = {
     Enabled = "${var.ignore_http_4xx}"
   }
 }
