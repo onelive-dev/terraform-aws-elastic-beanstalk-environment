@@ -804,6 +804,13 @@ resource "aws_elastic_beanstalk_environment" "default" {
 
   setting {
     namespace = "aws:autoscaling:trigger"
+    name      = "BreachDuration"
+    value     = var.breach_duration
+    resource  = ""
+  }
+
+  setting {
+    namespace = "aws:autoscaling:trigger"
     name      = "UpperThreshold"
     value     = var.autoscale_upper_bound
     resource  = ""

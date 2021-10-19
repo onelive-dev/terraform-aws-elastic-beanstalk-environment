@@ -360,6 +360,12 @@ variable "autoscale_lower_increment" {
   description = "How many Amazon EC2 instances to remove when performing a scaling activity."
 }
 
+variable "breach_duration" {
+  type        = number
+  default     = 5
+  description = "Amount of time trigger must breach in order to scale"
+}
+
 variable "autoscale_upper_bound" {
   type        = number
   default     = 80
@@ -454,7 +460,7 @@ variable "ami_id" {
   description = "The id of the AMI to associate with the Amazon EC2 instances"
 }
 
-variable deployment_type {
+variable "deployment_type" {
   type        = string
   description = "Choices are Immutable, Rolling, RollingWithAdditionalBatch, TrafficSplitting"
 }
