@@ -1,5 +1,5 @@
 data "template_file" "health_config_document" {
-  template = <<JSON
+  template = <<EOF
   {
         "Version": 1,
         "CloudWatchMetrics": {
@@ -63,7 +63,7 @@ data "template_file" "health_config_document" {
             }
         }
     }
-    JSON
+    EOF
   vars = {
     Enabled = "${var.ignore_http_4xx}"
   }
