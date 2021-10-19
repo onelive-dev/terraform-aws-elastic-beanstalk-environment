@@ -1,6 +1,6 @@
 data "template_file" "health_config_document" {
-  template = <<EOT
-  "{
+  template = <<JSON
+  {
         "Version": 1,
         "CloudWatchMetrics": {
             "Instance": {
@@ -62,8 +62,8 @@ data "template_file" "health_config_document" {
                 }
             }
         }
-    }"
-    EOT
+    }
+    JSON
   vars = {
     Enabled = "${var.ignore_http_4xx}"
   }
