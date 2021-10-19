@@ -910,7 +910,7 @@ resource "aws_elastic_beanstalk_environment" "default" {
   setting {
     namespace = "aws:elasticbeanstalk:cloudwatch:logs"
     name      = "StreamLogs"
-    value     = var.enable_stream_logs ? "true" : "false"
+    value     = var.enable_stream_logs
     resource  = ""
   }
 
