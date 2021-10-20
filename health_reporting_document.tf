@@ -57,7 +57,7 @@ data "template_file" "health_config_document" {
             "Environment": {
                 "Application": {
                     "ApplicationRequests4xx": {
-                        "Enabled": ${var.enable_ignore_http_4xx}
+                        "Enabled": ${var.disable_ignore_http_4xx}
                     }
                 }
             }
@@ -65,7 +65,7 @@ data "template_file" "health_config_document" {
     }
     EOF
   vars = {
-    Enabled = "${var.enable_ignore_http_4xx}"
+    Enabled = "${var.disable_ignore_http_4xx}"
   }
 }
 

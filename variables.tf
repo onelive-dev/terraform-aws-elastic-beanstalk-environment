@@ -489,7 +489,7 @@ variable "deployment_timeout" {
   description = "Number of seconds to wait for an instance to complete executing commands"
 }
 
-variable "enable_ignore_http_4xx" {
+variable "disable_ignore_http_4xx" {
   type        = bool
   default     = false
   description = "Ignore the 4xx errors when reporting on health"
