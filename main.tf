@@ -784,6 +784,13 @@ resource "aws_elastic_beanstalk_environment" "default" {
 
   setting {
     namespace = "aws:autoscaling:trigger"
+    name      = "Period"
+    value     = var.autoscale_measurement_period
+    resource  = ""
+  }
+
+  setting {
+    namespace = "aws:autoscaling:trigger"
     name      = "Statistic"
     value     = var.autoscale_statistic
     resource  = ""

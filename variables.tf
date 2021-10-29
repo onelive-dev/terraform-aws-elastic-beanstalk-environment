@@ -342,6 +342,12 @@ variable "autoscale_statistic" {
   description = "Statistic the trigger should use, such as Average"
 }
 
+variable autoscale_measurement_period {
+  type        = number
+  default     = 5
+  description = "Period of time over which our measurement is taken"
+}
+
 variable "autoscale_unit" {
   type        = string
   default     = "Percent"
