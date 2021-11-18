@@ -1,7 +1,6 @@
 resource "aws_autoscaling_policy" "target_tracking" {
   count                     = var.target_tracking ? 1 : 0
   name                      = "target-tracking-${var.name}"
-  scaling_adjustment        = var.tt_scaling_adjustment
   adjustment_type           = "ChangeInCapacity"
   estimated_instance_warmup = var.tt_warmup
   policy_type               = "TargetTrackingScaling"
