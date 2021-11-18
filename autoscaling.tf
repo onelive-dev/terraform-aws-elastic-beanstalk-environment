@@ -9,7 +9,7 @@ resource "aws_autoscaling_policy" "target_tracking" {
   target_tracking_configuration {
     predefined_metric_specification {
       predefined_metric_type = var.tt_metric_type
-      resource_label = "${local.tags[0].key}:${local.tags[0].value}"
+      resource_label = "elasticbeanstalk:environment-name:${var.name}"
     }
     target_value     = var.tt_target_value
     disable_scale_in = var.tt_disable_scale_in
