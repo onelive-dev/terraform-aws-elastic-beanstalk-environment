@@ -342,7 +342,7 @@ variable "autoscale_statistic" {
   description = "Statistic the trigger should use, such as Average"
 }
 
-variable autoscale_measurement_period {
+variable "autoscale_measurement_period" {
   type        = number
   default     = 5
   description = "Period of time over which our measurement is taken"
@@ -550,4 +550,47 @@ variable "scheduled_actions" {
   }))
   default     = []
   description = "Define a list of scheduled actions"
+}
+
+variable "target_tracking" {
+  type        = bool
+  default     = false
+  description = "flag that controls target tracking scaling policy"
+}
+
+variable "tt_scaling_adjustment" {
+  type        = number
+  default     = 1
+  description = "1,2,3, etc. scaling group integer adjustment for target"
+}
+
+variable "tt_cooldown" {
+  type        = number
+  default     = 120
+  description = "integer that controls number of seconds to wait after scaling before reevaluating for scaling again"
+}
+
+variable "tt_warmup" {
+  type        = number
+  default     = 30
+  description = "integer that dictates number of seconds to wait after scaling for compute to become ready"
+}
+
+variable "tt_metric_type" {
+  type        = string
+  default     = "ALBTargetGroupRequestCount"
+  description = "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_policy#target_tracking_configuration"
+  #https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_policy#target_tracking_configuration
+}
+
+variable "tt_target_value" {
+  type        = number
+  default     = 200
+  description = "target value that corresponds to the metric "
+}
+
+variable "tt_disable_scale_in" {
+  type        = bool
+  default     = false
+  description = "Disable Scaling in by this target group"
 }
