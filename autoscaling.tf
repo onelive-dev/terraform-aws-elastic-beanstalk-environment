@@ -22,7 +22,7 @@ data "aws_lb" "eb-alb" {
 
 # Regex \/awseb\-AWSEB-[a-zA-Z0-9]+\/[a-zA-Z0-9]+
 data "aws_resourcegroupstaggingapi_resources" "eb-alb-tg" {
-  resource_type_filters = ["elasticloadbalancingv2:targetgroup"]
+  resource_type_filters = ["elasticloadbalancing:targetgroup"]
   tag_filter {
     key    = "elasticbeanstalk:environment-name"
     values = ["${var.name}",]
