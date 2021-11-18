@@ -5,6 +5,7 @@ resource "aws_autoscaling_policy" "target_tracking" {
   adjustment_type           = "ChangeInCapacity"
   cooldown                  = var.tt_cooldown
   estimated_instance_warmup = var.tt_warmup
+  policy_type               = "DynamicScaling"
   autoscaling_group_name    = aws_elastic_beanstalk_environment.default.autoscaling_groups[0]
 
   target_tracking_configuration {
