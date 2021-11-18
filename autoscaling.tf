@@ -9,7 +9,7 @@ resource "aws_autoscaling_policy" "target_tracking" {
   target_tracking_configuration {
     predefined_metric_specification {
       predefined_metric_type = var.tt_metric_type
-      resource_label = "app/${regex(data.aws_lb.eb-alb.arn, "\\/awseb\\-AWSEB-[a-zA-Z0-9]+\\/[a-zA-Z0-9]+")}/${regex(data.aws_resourcegroupstaggingapi_resources.eb-alb-tg.resource_tag_mapping_list.0.resource_arn, "\\/awseb\\-AWSEB-[a-zA-Z0-9]+\\/[a-zA-Z0-9]+")}"
+      resource_label = "app/${regex("\\/awseb\\-AWSEB-[a-zA-Z0-9]+\\/[a-zA-Z0-9]+",data.aws_lb.eb-alb.arn)}/${regex("\\/awseb\\-AWSEB-[a-zA-Z0-9]+\\/[a-zA-Z0-9]+",data.aws_resourcegroupstaggingapi_resources.eb-alb-tg.resource_tag_mapping_list.0.resource_arn)}"
     }
     target_value     = var.tt_target_value
     disable_scale_in = var.tt_disable_scale_in
