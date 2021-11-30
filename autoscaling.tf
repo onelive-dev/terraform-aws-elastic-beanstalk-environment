@@ -14,6 +14,9 @@ resource "aws_autoscaling_policy" "target_tracking" {
     target_value     = var.tt_target_value
     disable_scale_in = var.tt_disable_scale_in
   }
+  depends_on = [
+    aws_elastic_beanstalk_environment.default
+  ]
 }
 
 data "aws_lb" "eb-alb" {
