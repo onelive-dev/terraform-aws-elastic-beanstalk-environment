@@ -21,6 +21,9 @@ resource "aws_autoscaling_policy" "target_tracking" {
 
 data "aws_lb" "eb-alb" {
   arn  = aws_elastic_beanstalk_environment.default.load_balancers[0]
+  depends_on = [
+    aws_elastic_beanstalk_environment.default
+  ]
 }
 
 # Regex \/awseb\-AWSEB-[a-zA-Z0-9]+\/[a-zA-Z0-9]+
@@ -30,4 +33,7 @@ data "aws_resourcegroupstaggingapi_resources" "eb-alb-tg" {
     key    = "elasticbeanstalk:environment-name"
     values = ["${var.name}",]
   }
+  depends_on = [
+    aws_elastic_beanstalk_environment.default
+  ]
 }
